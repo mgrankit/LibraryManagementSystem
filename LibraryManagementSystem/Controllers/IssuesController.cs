@@ -40,7 +40,6 @@ namespace LibraryManagementSystem.Controllers
                 BookId = dto.BookId,
                 StudentId = dto.StudentId,
                 IssueDate = dto.IssueDate,
-                IsDeleted = dto.IsDeleted
             };
 
             await _issueRepo.AddAsync(issue);
@@ -58,7 +57,6 @@ namespace LibraryManagementSystem.Controllers
             issue.BookId = dto.BookId;
             issue.StudentId = dto.StudentId;
             issue.IssueDate = dto.IssueDate;
-            issue.IsDeleted = dto.IsDeleted;
 
             _issueRepo.Update(issue);
             await _issueRepo.SaveChangesAsync();
@@ -71,8 +69,6 @@ namespace LibraryManagementSystem.Controllers
         {
             var issue = await _issueRepo.GetByIdAsync(id);
             if (issue == null) return NotFound();
-
-            issue.IsDeleted = true;
             _issueRepo.Update(issue);
             await _issueRepo.SaveChangesAsync();
 

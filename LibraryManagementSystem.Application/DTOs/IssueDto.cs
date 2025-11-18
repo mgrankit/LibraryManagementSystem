@@ -11,7 +11,6 @@ namespace LibraryManagementSystem.Application.DTOs
         public int IssueId { get; set; }
         public int BookId { get; set; }
         public int StudentId { get; set; }
-        public DateTime IssueDate { get; set; }
-        public bool IsDeleted { get; set; } = false;
+        public DateTime IssueDate { get; set; } = DateTime.UtcNow;
     }
 }

@@ -14,6 +14,5 @@ namespace LibraryManagementSystem.Application.DTOs
         public string? ContactNo { get; set; }
         public string? Faculty { get; set; }
         public string? Semester { get; set; }
-        public bool IsDeleted { get; set; } = false;
     }
 }

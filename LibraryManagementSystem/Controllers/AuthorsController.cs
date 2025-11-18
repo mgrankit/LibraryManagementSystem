@@ -38,7 +38,6 @@ namespace LibraryManagementSystem.Controllers
             var author = new Author
             {
                 AuthorName = dto.AuthorName,
-                IsDeleted = dto.IsDeleted
             };
 
             await _authorRepo.AddAsync(author);
@@ -54,7 +53,6 @@ namespace LibraryManagementSystem.Controllers
             if (author == null) return NotFound();
 
             author.AuthorName = dto.AuthorName;
-            author.IsDeleted = dto.IsDeleted;
 
             _authorRepo.Update(author);
             await _authorRepo.SaveChangesAsync();
@@ -67,8 +65,6 @@ namespace LibraryManagementSystem.Controllers
         {
             var author = await _authorRepo.GetByIdAsync(id);
             if (author == null) return NotFound();
-
-            author.IsDeleted = true;
             _authorRepo.Update(author);
             await _authorRepo.SaveChangesAsync();
 

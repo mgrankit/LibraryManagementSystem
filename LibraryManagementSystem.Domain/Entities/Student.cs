@@ -14,7 +14,6 @@ namespace LibraryManagementSystem.Domain.Entities
         public string? ContactNo { get; set; }
         public string? Faculty { get; set; }
         public string? Semester { get; set; }
-        public bool IsDeleted { get; set; } = false;
 
         public ICollection<Issue>? Issues { get; set; }
     }

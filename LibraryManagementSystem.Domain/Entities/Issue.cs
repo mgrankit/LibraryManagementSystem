@@ -11,8 +11,7 @@ namespace LibraryManagementSystem.Domain.Entities
         public int IssueId { get; set; }
         public int BookId { get; set; }
         public int StudentId { get; set; }
-        public DateTime IssueDate { get; set; }
-        public bool IsDeleted { get; set; } = false;
+        public DateTime IssueDate { get; set; } = DateTime.UtcNow;
 
         public Book? Book { get; set; }
         public Student? Student { get; set; }

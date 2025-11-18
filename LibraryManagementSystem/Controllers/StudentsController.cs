@@ -42,7 +42,6 @@ namespace LibraryManagementSystem.Controllers
                 ContactNo = dto.ContactNo,
                 Faculty = dto.Faculty,
                 Semester = dto.Semester,
-                IsDeleted = dto.IsDeleted
             };
 
             await _studentRepo.AddAsync(student);
@@ -62,7 +61,6 @@ namespace LibraryManagementSystem.Controllers
             student.ContactNo = dto.ContactNo;
             student.Faculty = dto.Faculty;
             student.Semester = dto.Semester;
-            student.IsDeleted = dto.IsDeleted;
 
             _studentRepo.Update(student);
             await _studentRepo.SaveChangesAsync();
@@ -76,7 +74,6 @@ namespace LibraryManagementSystem.Controllers
             var student = await _studentRepo.GetByIdAsync(id);
             if (student == null) return NotFound();
 
-            student.IsDeleted = true;
             _studentRepo.Update(student);
             await _studentRepo.SaveChangesAsync();
 

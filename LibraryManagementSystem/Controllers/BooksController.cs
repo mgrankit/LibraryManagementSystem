@@ -61,7 +61,6 @@ namespace LibraryManagementSystem.Controllers
             if (book == null) return NotFound();
 
             // soft delete pattern:
-            book.IsDeleted = true;
             _bookRepo.Update(book);
             await _bookRepo.SaveChangesAsync();
             return NoContent();
